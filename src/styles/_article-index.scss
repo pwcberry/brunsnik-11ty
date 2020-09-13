@@ -1,0 +1,92 @@
+@import "./variables";
+@import "./mixins";
+
+.article-index {
+  time {
+    margin-top: 0.25em;
+
+    &::before {
+      content: "Written: "
+    }
+  }
+
+  a:not(.main-nav-link) {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &,
+    &:visited {
+      color: $text-color;
+    }
+
+    &:active {
+      color: $link-color;
+    }
+
+    + time {
+      font-size: 0.67rem;
+      font-style: italic;
+    }
+  }
+
+  article {
+    p {
+      margin: 0 0 0.33em;
+    }
+
+    @media screen and (max-width: 767px) {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+.article-container {
+  display: block;
+
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+  }
+}
+
+.article-index-empty {
+  padding: 0.5rem 0.67rem;
+  background-color: rgba(255, 255, 255, 0.33);
+  border: 1px solid rgba(192, 192, 192, 0.8);
+  border-radius: 6px;
+}
+
+@include mobile-portrait {
+  .article-container {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+@include mobile-landscape {
+  .article-container {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@include tablet-portrait {
+  .article-container {
+    padding: 0 0.25rem;
+  }
+}
+
+@include desktop-landscape {
+  .article-container {
+    padding: 0.25rem 0.75rem;
+  }
+}
+
+@include tablet-landscape {
+  .article-container {
+    padding: 0 0.25rem;
+  }
+}

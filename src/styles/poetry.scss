@@ -1,0 +1,55 @@
+@import "./variables";
+@import "./mixins";
+
+.poetry-switcher {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 0.75rem;
+
+  > .poetry-switcher-item {
+    margin-right: 4px;
+    flex: 0 0 auto;
+    position: relative;
+    overflow: hidden;
+
+    > input[type=radio] {
+      position: absolute;
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 1;
+      width: 0;
+      height: 0;
+
+      &:checked + label {
+        cursor: default;
+        border-bottom: 2px solid $hyper-blue;
+      }
+
+      &:not(:checked) + label {
+        cursor: pointer;
+        color: lighten($text-color, 20%);
+
+        &:hover {
+          border-left: 2px solid rgba(255, 255, 255, 0.67);
+          border-bottom: 2px solid rgba(255, 255, 255, 0.67);
+          background-color: rgba(255, 255, 255, 0.5);
+          border-bottom: 2px solid $light-blue;
+        }
+      }
+    }
+
+    > label {
+      display: inline-block;
+      border-left: 2px solid rgba(255, 255, 255, 0.5);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.33);
+      padding: 0.25rem 0.5rem;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      transition: all ease 0.2s;
+    }
+  }
+}
+
+@import "./article-index";

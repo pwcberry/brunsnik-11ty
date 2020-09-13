@@ -1,0 +1,38 @@
+{
+  "name": "brunsnik-11ty",
+  "version": "0.0.0",
+  "description": "Sample eleventy website, modelled on brunsnik.net.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run styles && npm run eleventy",
+    "clean": "rimraf _site",
+    "eleventy": "eleventy",
+    "start": "eleventy --serve --port=10000",
+    "styles": "node scripts/styles.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pwcberry/brunsnik-11ty.git"
+  },
+  "keywords": [
+    "eleventy",
+    "11ty",
+    "website",
+    "ssg",
+    "generator"
+  ],
+  "author": "Peter Berry <nerd@travelsincode.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pwcberry/brunsnik-11ty/issues"
+  },
+  "homepage": "https://github.com/pwcberry/brunsnik-11ty#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "node-sass": "^4.14.1",
+    "rimraf": "^3.0.2",
+    "sax": "^1.2.4",
+    "unzipper": "^0.10.11"
+  }
+}

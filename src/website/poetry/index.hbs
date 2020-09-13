@@ -1,0 +1,70 @@
+---
+canonicalUrl: "https://brunsnik.net/poetry/"
+description: "Poetry written by brunsnik."
+contentType: "website"
+---
+<!DOCTYPE html>
+<html lang="en-AU" prefix="og: http://ogp.me/ns#">
+<head>
+    {{> site-metadata }}
+    {{> site-typography-links }}
+    <title>Poetry | brunsnik</title>
+    <link rel="stylesheet" href="/assets/styles/base.css" type="text/css">
+    <link rel="stylesheet" href="/assets/styles/poetry.css" type="text/css">
+    <link rel="alternate" type="application/rss+xml" title="brunsnik feed" href="/rss.xml">
+</head>
+<body class="article-index space-at-bottom">
+{{> site-nav current="poetry" }}
+<main>
+    <h1>Poetry</h1>
+    <div class="poetry-switcher">
+        <div class="poetry-switcher-item">
+            <input
+                type="radio"
+                name="poetryView"
+                value="title"
+                checked="checked"
+                id="poetry-switcher-title"
+            />
+            <label for="poetry-switcher-title">Sort by title</label>
+        </div>
+        <div class="poetry-switcher-item">
+            <input
+                type="radio"
+                name="poetryView"
+                value="date"
+                id="poetry-switcher-date"
+            />
+            <label for="poetry-switcher-date">Sort by date</label>
+        </div>
+    </div>
+    <div class="article-container">
+        {{#each publicData.poetry}}
+            <article>
+                <p><a href="{{docPath}}">{{title}}</a></p>
+                <time>{{when}}</time>
+                {{#if soundcloudId}}
+                    <a class="poem-audio-player-link" href="{{docPath}}#player" title="Jump to hear a reading of "{{title}}"">
+                        <svg viewBox="0 0 32 32" width="100%" height="100%">
+                            <use xlink:href="#player-icon"/>
+                        </svg>
+                        Jump to hear a reading of "{{title}}"
+                    </a>
+                {{/if}}
+            </article>
+        {{/each}}
+    </div>
+    <footer class="main-footer">
+        {{> copyright }}
+        {{> back-to-top }}
+    </footer>
+</main>
+{{> player-icon }}
+{{> page-initialization }}
+{{> site-analytics }}
+<script>
+    const POETRY_DATA = {{{ json publicData.poetry }}};
+</script>
+<script src="/assets/js/poetry.js"></script>
+</body>
+</html>

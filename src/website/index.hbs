@@ -1,0 +1,65 @@
+---
+canonicalUrl: "https://brunsnik.net/"
+description: "The website of brunsnik, a poet and aspiring music producer who lives in Melbourne, Australia."
+contentType: "website"
+---
+<!DOCTYPE html>
+<html lang="en-AU" prefix="og: http://ogp.me/ns#">
+<head>
+    {{> site-metadata }}
+    {{> site-typography-links }}
+    <title>Welcome | brunsnik</title>
+    <link rel="stylesheet" href="/assets/styles/base.css" type="text/css">
+    <link rel="stylesheet" href="/assets/styles/home.css" type="text/css">
+    <link rel="alternate" type="application/rss+xml" title="brunsnik feed" href="/rss.xml">
+</head>
+<body class="home-page space-at-bottom">
+{{> site-nav }}
+<main>
+    <p>
+        Welcome to the website of brunsnik, a poet and aspiring music producer who
+        lives in Melbourne, Australia.
+    </p>
+    {{#if homePage.poetry.length}}
+        <div class="highlights-list">
+            <h1>Poetry</h1>
+        {{#each homePage.poetry}}
+            <article class="highlight-summary">
+                <h2><a href="{{docPath}}">{{title}}</a></h2>
+                <div class="highlight-excerpt">
+                    {{{excerpt}}}
+                    <time>{{ formatDate added }}</time>
+                </div>
+            </article>
+        {{/each}}
+        </div>
+    {{/if}}
+    {{#if homePage.prose.length}}
+        <div class="highlights-list">
+            <h1>Prose</h1>
+            {{#each homePage.prose}}
+                <article class="highlight-summary">
+                    <h2><a href="{{docPath}}">{{title}}</a></h2>
+                    <div class="highlight-excerpt">
+                        {{{excerpt}}}
+                        <time>{{ formatDate added }}</time>
+                    </div>
+                </article>
+            {{/each}}
+        </div>
+    {{/if}}
+    {{#each homePage.items}}
+        <article>
+            <h2>{{title}}</h2>
+        </article>
+    {{/each}}
+    <footer class="main-footer">
+        {{> copyright }}
+        {{> back-to-top }}
+    </footer>
+</main>
+{{> player-icon }}
+{{> page-initialization }}
+{{> site-analytics }}
+</body>
+</html>

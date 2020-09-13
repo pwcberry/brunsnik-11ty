@@ -1,0 +1,30 @@
+---
+permalink: "{{page.filePathStem}}.html"
+canonicalUrl: "https://brunsnik.net/poetry/{{permalink}}"
+contentType: "article"
+---
+<!DOCTYPE html>
+<html lang="en-AU" prefix="og: http://ogp.me/ns#">
+<head>
+    {{> site-metadata }}
+    {{> site-typography-links }}
+    <title>{{title}} | Poetry | brunsnik.net</title>
+    <link rel="stylesheet" href="/assets/styles/base.css" type="text/css">
+    <link rel="stylesheet" href="/assets/styles/article.css" type="text/css">
+</head>
+<body class="article-reader {{bodyClassName}}">
+{{> site-nav current="poetry" }}
+<main>
+    <article>
+        {{{content}}}
+        <time>{{when}}</time>
+    </article>
+    <footer class="main-footer">
+        {{> copyright }}
+        {{> back-to-top }}
+    </footer>
+</main>
+{{> page-initialization }}
+{{> site-analytics }}
+</body>
+</html>

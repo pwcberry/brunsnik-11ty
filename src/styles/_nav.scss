@@ -1,0 +1,111 @@
+@import "./variables";
+@import "./mixins";
+
+$nav-bg-color: $body-bg-color;
+$nav-text-color: #333;
+$nav-border-color: #827BD1;
+$nav-margin-bottom: 0.125rem;
+
+.main-nav {
+  @include fit-left;
+  margin-top: 0.25rem;
+  width: 100%;
+  height: 2.25rem;
+  margin-bottom: $nav-margin-bottom;
+}
+
+.main-nav-home {
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  background-color: transparentize($main-bg-color, 0.45);
+  border-radius: 0.25rem;
+  margin-right: 0.125rem;
+}
+
+.main-nav-home-logo {
+  width: 100%;
+  height: 100%;
+  padding: 0.125rem;
+  object-fit: cover;
+}
+
+a.main-nav-link {
+  font-family: itc-avant-garde-gothic-pro, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 0.875rem;
+  text-align: center;
+  line-height: 1;
+  text-decoration: none;
+  display: block;
+  padding: 0.75rem 1rem 0.5rem;
+  cursor: pointer;
+  background-color: $main-bg-color;
+  border-right: 1px solid rgba(255, 255, 255, .2);
+  margin-right: 0.125rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  transition: color ease 0.2s;
+
+  &[aria-current],
+  &.current {
+    border-bottom: 3px solid lighten($logo-blue, 5%);
+    box-shadow: 0 1px 2px rgba(255, 255, 255, 0.67);
+
+    &,
+    &:hover,
+    &:visited {
+      color: darken($logo-blue, 15%);
+      text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &,
+  &:visited {
+    text-decoration: none;
+    color: $nav-text-color;
+  }
+
+  &:hover {
+    color: black;
+  }
+
+  &:not([aria-current]) {
+    @include link-gradient-hover;
+  }
+}
+
+@include mobile-landscape {
+  .main-nav {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@include tablet-portrait {
+  .main-nav {
+    width: calc(640px + 3.5rem);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.75rem;
+  }
+}
+
+@include desktop-landscape {
+  .main-nav {
+    width: calc(960px + 3.5rem);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.75rem;
+  }
+}
+
+@include tablet-landscape {
+  .main-nav {
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(800px + 3.5rem);
+    padding: 0 1.75rem;
+  }
+}

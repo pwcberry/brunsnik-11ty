@@ -1,0 +1,61 @@
+@import "variables";
+
+.home-page {
+  main {
+    p:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.highlights-list {
+  h1 {
+    font-size: 1.4rem;
+  }
+}
+
+.highlight-summary {
+  margin-top: 1.5rem;
+
+  h2 {
+    font-size: 1rem;
+    margin: 0 0 0.4em;
+
+    a {
+      text-decoration: underline;
+      color: $text-color;
+      transition: color ease 0.2s;
+
+      &:hover {
+        text-decoration: none;
+        color: darken($text-color, 10%);
+      }
+
+      &:visited {
+        color: mix($text-color, $link-color);
+      }
+    }
+  }
+}
+
+.highlight-excerpt {
+  padding: 0.5rem 0.67rem;
+  background-color: rgba(255, 255, 255, 0.33);
+  border: 1px solid rgba(192, 192, 192, 0.8);
+  border-radius: 6px;
+
+  p {
+    font-size: 0.75em;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  time {
+    color: lighten($text-color, 20%);
+    margin-top: 0.25em;
+
+    &::before {
+      content: "Added: "
+    }
+  }
+}
