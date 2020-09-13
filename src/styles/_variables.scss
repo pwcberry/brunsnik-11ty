@@ -4,9 +4,11 @@ $color-theme-2: #F5EEDC; // rgb(240, 238, 220)
 $color-theme-3: #FFF5E6; // rgb(255, 245, 230)
 $color-theme-4: #FFEFE6; // rgb(255, 239, 230)
 $color-theme-5: #F5E1DC; // rgb(245, 225, 220)
+$color-theme-6: #7e9ec5; // rgb(126, 158, 197)
 
 // Named colours
-$body-bg-color: #7e9ec5;
+
+$body-bg-color: lighten($color-theme-6, 40%);
 $main-bg-color: $color-theme-1;
 $text-color: #636669;
 $link-color: #503d0c;
